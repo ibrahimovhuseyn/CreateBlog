@@ -4,7 +4,6 @@ import axios from 'axios'
 import { apiUrl } from '../../Confiq'
 import { Container, Row, Spinner } from 'reactstrap'
 import BlogCard from '../Lib/BlogCard'
-import Header from '../Header/Header'
 
 function Home() {
 
@@ -23,7 +22,6 @@ function Home() {
 
   return (
     <div>
-      <Header/>
       <div className="py-4">
         {
           !isLoading ?
@@ -33,10 +31,10 @@ function Home() {
                   list.map(item => (
                     <div
                       key={item.id}
-                      className='col-md-12'
+                      className='col-md-12  '
+                      
                     >
                       <BlogCard
-                      item = {item}
                         blog_id={item.id}
                         title={item.title}
                         description={item.description}

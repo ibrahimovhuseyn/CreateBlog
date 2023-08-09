@@ -8,15 +8,16 @@ import {
 } from 'reactstrap'
 import Select from 'react-select'
 import axios from 'axios'
-import { apiUrl } from '../../Confiq'
+import { apiUrl, toast_config } from '../../Confiq'
 import { errorText } from '../../Utils/errorContent'
 import "bootstrap/dist/css/bootstrap.min.css"
-import Swal from "sweetalert2";  
+import Swal from "sweetalert2";
+import { toast } from 'react-toastify'
 
 function Create() {
     const [userList, setUserList] = useState([])
     const [validationErrors, setValidationErrors] = useState({})
-
+    const [selectedValue, setSelectedValue] = useState('');
 
     useEffect(() => {
         axios.get(`${apiUrl}/users`).then(res => setUserList(res.data))
@@ -29,11 +30,11 @@ function Create() {
             img_url: "",
             description: ""
         }
-        if(!data.user_id){
-            errors.user_id = errorText.required("Author") 
+        if (!data.user_id) {
+            errors.user_id = errorText.required("Author")
         }
-        if(!data.title){
-        errors.title = errorText.required("Title")
+        if (!data.title) {
+            errors.title = errorText.required("Title")
         }
         if (!data.img_url) {
             errors.img_url = errorText.required("Image url")
@@ -45,7 +46,6 @@ function Create() {
         return errors
 
     }
-
 
     function handleCreate(e) {
         e.preventDefault()
@@ -59,9 +59,9 @@ function Create() {
         const errors = validate(data)
         setValidationErrors(errors)
 
-        if (Object.values(errors).filter(string => string.length)) {
-            // Swal.fire('Please fill in the boxes')
-            alert("salam")
+        if (Object.values(errors).filter(string => string).length) {
+            Swal.fire('Please fill in the boxes')
+            // toast.error("Please fill in the boxes", toast_config)
             return
         }
 
@@ -72,9 +72,13 @@ function Create() {
             img_url: data.img_url,
             user_id: Number(data.user_id)
         }).then(res => {
-            console.log(res.data);
+            toast.success("Uğurlu əməliyyat", toast_config)
+            e.target.reset()
+            setSelectedValue("")
+
         })
-        }
+
+    }
 
 
 
@@ -88,16 +92,18 @@ function Create() {
                                 <div className="form-group mb-4">
                                     <Label htmlFor='author'>Author</Label>
                                     <Select
+                                        value={selectedValue}
+                                        onChange={selectedOption => setSelectedValue(selectedOption) }
                                         isClearable
                                         name='user_id'
                                         id='author'
                                         options={userList}
                                         getOptionValue={option => option.id}
                                         getOptionLabel={option => option.fullname}
-                                        className={`${validationErrors.user_id ? "border border-danger" :""}`}
+                                        className={`${validationErrors.user_id ? "border border-danger" : ""}`}
                                     />
                                     {
-                                        validationErrors.user_id && 
+                                        validationErrors.user_id &&
                                         <p className='mt-2 text-danger fw-bold'>{validationErrors.user_id} </p>
                                     }
                                 </div>
@@ -108,10 +114,10 @@ function Create() {
                                         id='title'
                                         name='title'
                                         placeholder='Enter title'
-                                        className={`${validationErrors.title? "border border-danger" : ""}`}
+                                        className={`${validationErrors.title ? "border border-danger" : ""}`}
                                     />
-                                     {
-                                        validationErrors.title && 
+                                    {
+                                        validationErrors.title &&
                                         <p className='mt-2 text-danger fw-bold'>{validationErrors.title} </p>
                                     }
                                 </div>
@@ -124,23 +130,23 @@ function Create() {
                                         placeholder='Enter image url'
                                         className={`${validationErrors.img_url ? "border border-danger" : ""}`}
                                     />
-                                     {
-                                        validationErrors.img_url && 
+                                    {
+                                        validationErrors.img_url &&
                                         <p className='mt-2 text-danger fw-bold'>{validationErrors.img_url} </p>
                                     }
                                 </div>
                                 <div className="form-group mb-4">
                                     <Label htmlFor='description'>Description</Label>
                                     <Input
-                                    className={`${validationErrors.description ? "border border-danger": ""}`}
+                                        className={`${validationErrors.description ? "border border-danger" : ""}`}
                                         type='textarea'
                                         id='description'
                                         name='description'
                                         placeholder='Enter blog description'
-                                        rows={7}
+                                        rows={5}
                                     />
                                     {
-                                        validationErrors.description && 
+                                        validationErrors.description &&
                                         <p className='mt-2 text-danger fw-bold'>{validationErrors.description} </p>
                                     }
                                 </div>

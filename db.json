@@ -20,28 +20,50 @@
       "img_url": "https://techcrunch.com/wp-content/uploads/2015/08/html5_top.png",
       "user_id": 2,
       "id": 3
+    },
+    {
+      "title": "Javascript",
+      "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
+      "img_url": "https://blog.logrocket.com/wp-content/uploads/2021/02/machine-learning-libraries-javascript.png",
+      "user_id": 3,
+      "id": 4
+    },
+    {
+      "title": "Football",
+      "description": "The UEFA Champions League (abbreviated as UCL, or sometimes, UEFA CL) is an annual club association football competition organised by the Union of European Football Associations (UEFA) and contested by top-division European clubs, deciding the competition winners through a round robin group stage to qualify for a double-legged knockout format, and a single leg final. It is the most-watched club competition in the world and the third most-watched football competition overall, behind only the UEFA European Championship and the FIFA World Cup. It is one of the most prestigious football tournaments in the world and the most prestigious club competition in European football, played by the national league champions (and, for some nations, one or more runners-up) of their national associations.\n\nIntroduced in 1955 as the Coupe des Clubs Champions Européens (French for European Champion Clubs' Cup), and commonly known as the European Cup, it was initially a straight knockout tournament open only to the champions of Europe's domestic leagues, with its winner reckoned as the European club champion. The competition took on its current name in 1992, adding a round-robin group stage in 1991 and allowing multiple entrants from certain countries since the 1997–98 season.[1] It has since been expanded, and while most of Europe's national leagues can still only enter their champion, the strongest leagues now provide up to four teams.[2][3] Clubs that finish next-in-line in their national league, having not qualified for the Champions League, are eligible for the second-tier UEFA Europa League competition, and since 2021, for the third-tier UEFA Europa Conference League.[4]",
+      "img_url": "https://img.olympicchannel.com/images/image/private/t_s_pog_staticContent_hero_xl_2x/f_auto/primary/pyqaawxxfwzeiib35hsm",
+      "user_id": 3,
+      "id": 5
     }
   ],
   "users": [
     {
       "id": 1,
       "fullname": "Pervin Pashazade",
-      "username": "pervinpashazade"
+      "username": "pervinpashazade",
+      "email": "pervin@mail.ru",
+      "nickname": "Developer"
     },
     {
       "id": 2,
       "fullname": "Yasemen Memmedli",
-      "username": "yasemen"
+      "username": "yasemen",
+      "email": "yasemen@mail.ru",
+      "nickname": "Mentor"
     },
     {
       "id": 3,
       "fullname": "Huseyn Ibrahimov",
-      "username": "huseyn"
+      "username": "huseyn",
+      "email": "huseyn@mail.ru",
+      "nickname": "Boyka"
     },
     {
-      "id": 18,
+      "id": 4,
       "fullname": "Resad Sadiqov",
-      "username": "resad"
+      "username": "resad",
+      "email": "resad@mail.ru",
+      "nickname": "Akula"
     }
   ]
 }
